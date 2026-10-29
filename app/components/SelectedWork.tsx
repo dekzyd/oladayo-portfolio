@@ -32,7 +32,7 @@ export default function SelectedWork() {
 
       <article className="project project--featured project--idec" id="idec">
         <div className="project__meta">
-          <span>01 - FEATURED PROJECT</span>
+          <span>FEATURED PROJECT - 01</span>
           <span>2024 — PRESENT</span>
         </div>
 

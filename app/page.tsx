@@ -16,19 +16,29 @@ export default function Home() {
     <main className="main">
       <Navbar />
       <Hero />
+      {/* 01	Introduction */}
       <Intro />
+      {/* 02	Selected Work */}
       <SelectedWork />
+      {/* 03	Case Study Intro */}
       <CaseStudyIntro />
+      {/* 04	Project Details*/}
       <CaseStudyWork />
 
       <div className="project-chapter project-chapter--imep">
+        {/* 05	Another Project */}
         <ProjectTransition />
+        {/* 06	IMEP Project */}
         <IMEPProject />
+        {/* 07	System & Roles */}
         <RoleSystem />
       </div>
 
+      {/* 08	How I Work */}
       <Approach />
+      {/* 09	About */}
       <About />
+      {/* 10	Contact */}
       <Contact />
     </main>
   );

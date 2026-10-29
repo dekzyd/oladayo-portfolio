@@ -5,7 +5,7 @@ export default function Approach() {
     <section className="approach">
       <div className="approach__header">
         <SectionLabel
-          number="05"
+          number="08"
           label="HOW I WORK"
           className="approach__label"
         />

@@ -4,7 +4,7 @@ export default function ProjectTransition() {
   return (
     <section className="project-transition">
       <SectionLabel
-        number="06"
+        number="05"
         label="ANOTHER PROJECT"
         className="project-transition__label"
       />

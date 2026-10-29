@@ -5,7 +5,7 @@ export default function RoleSystem() {
     <section className="role-system">
       <div className="role-system__header">
         <SectionLabel
-          number="08"
+          number="07"
           label="THE WORKFLOW"
           className="role-system__label"
         />

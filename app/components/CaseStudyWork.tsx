@@ -19,7 +19,7 @@ export default function CaseStudyWork() {
       <div className="case-study-work__list">
         {/* Work item 1 */}
         <article className="work-item">
-          <div className="work-item__number">01</div>
+          <div className="work-item__number"></div>
 
           <div className="work-item__content">
             <span className="work-item__category">FRONTEND DEVELOPMENT</span>
@@ -44,7 +44,7 @@ export default function CaseStudyWork() {
 
         {/* Work item 2 */}
         <article className="work-item">
-          <div className="work-item__number">02</div>
+          <div className="work-item__number"></div>
 
           <div className="work-item__content">
             <span className="work-item__category">API INTEGRATION</span>
@@ -69,7 +69,7 @@ export default function CaseStudyWork() {
 
         {/* Work item 3 */}
         <article className="work-item">
-          <div className="work-item__number">03</div>
+          <div className="work-item__number"></div>
 
           <div className="work-item__content">
             <span className="work-item__category">PERFORMANCE</span>

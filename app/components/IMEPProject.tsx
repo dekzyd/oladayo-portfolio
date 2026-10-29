@@ -8,7 +8,7 @@ export default function IMEPProject() {
     >
       <div className="work__header">
         <SectionLabel
-          number="07"
+          number="06"
           label="SELECTED WORK"
           className="work__label"
         />
@@ -21,7 +21,7 @@ export default function IMEPProject() {
 
       <article className="project project--featured project--imep">
         <div className="project__meta">
-          <span>02 - FEATURED PROJECT</span>
+          <span>FEATURED PROJECT - 02</span>
           <span>2024 — PRESENT</span>
         </div>
 
