@@ -11,6 +11,8 @@
 :root {
   /* Layout */
   --header-height: 3.5rem;
+  --section-padding: 3rem;
+  --section-padding-mobile: 1.5rem 1.25rem;
 
   /* Typography weights */
   --font-medium: 500;
@@ -313,7 +315,7 @@ a {
 .intro {
   min-height: 100svh;
   width: 100%;
-  padding: 48px;
+  padding: var(--section-padding);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -356,7 +358,7 @@ a {
 
 @media (max-width: 600px) {
   .intro {
-    padding: 24px 20px;
+    padding: var(--section-padding-mobile);
   }
 
   .intro__statement {
@@ -375,7 +377,7 @@ a {
 
 .work {
   width: 100%;
-  padding: 120px 48px;
+  padding: var(--section-padding);
   background: var(--color-background);
   color: var(--color-text);
 }
@@ -575,7 +577,7 @@ a {
 
 @media (max-width: 700px) {
   .work {
-    padding: 80px 20px;
+    padding: var(--section-padding-mobile);
   }
 
   .work__header {
@@ -624,7 +626,7 @@ a {
 
 .case-study-intro {
   min-height: 90svh;
-  padding: 120px 48px;
+  padding: var(--section-padding);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -680,10 +682,10 @@ a {
   margin-bottom: 0;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
   .case-study-intro {
     min-height: auto;
-    padding: 80px 20px;
+    padding: var(--section-padding-mobile);
     gap: 100px;
   }
 
@@ -707,7 +709,7 @@ a {
 
 .case-study-work {
   width: 100%;
-  padding: 140px 48px;
+  padding: var(--section-padding);
   background: var(--color-background);
   color: var(--color-text);
 }
@@ -818,7 +820,7 @@ a {
 
 @media (max-width: 700px) {
   .case-study-work {
-    padding: 90px 20px;
+    padding: var(--section-padding-mobile);
   }
 
   .case-study-work__header {
@@ -852,7 +854,7 @@ a {
 
 .approach {
   width: 100%;
-  padding: 140px 48px;
+  padding: var(--section-padding);
   background: var(--color-background-dark);
   color: var(--color-text-inverse);
 }
@@ -962,9 +964,9 @@ a {
 
 /* ---------- Approach mobile ---------- */
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
   .approach {
-    padding: 90px 20px;
+    padding: var(--section-padding-mobile);
   }
 
   .approach__header {
@@ -1026,7 +1028,7 @@ a {
 
 .project-transition {
   min-height: 70svh;
-  padding: 120px 48px;
+  padding: var(--section-padding);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1064,7 +1066,7 @@ a {
 @media (max-width: 700px) {
   .project-transition {
     min-height: 65svh;
-    padding: 80px 20px;
+    padding: var(--section-padding-mobile);
   }
 
   .project-transition__content p {
@@ -1073,7 +1075,7 @@ a {
   }
 
   .project-transition__content span {
-    margin-left: 4vw;
+    margin-left: 12vw;
   }
 }
 /* ========================================
@@ -1082,7 +1084,7 @@ a {
 
 .role-system {
   width: 100%;
-  padding: 140px 48px;
+  padding: var(--section-padding);
   background: var(--color-background);
   color: var(--color-text);
 }
@@ -1275,7 +1277,7 @@ a {
 
 @media (max-width: 900px) {
   .role-system {
-    padding: 90px 20px;
+    padding: var(--section-padding-mobile);
   }
 
   .role-system__header {
@@ -1295,7 +1297,7 @@ a {
   }
 
   .role-system__headline span {
-    margin-left: 5vw;
+    margin-left: 12vw;
   }
 
   .role-system__flow {
@@ -1320,7 +1322,7 @@ a {
 
 .about {
   width: 100%;
-  padding: 140px 48px;
+  padding: var(--section-padding);
   background: var(--color-background);
   color: var(--color-text);
 }
@@ -1437,9 +1439,9 @@ a {
 
 /* ---------- About mobile ---------- */
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .about {
-    padding: 90px 20px;
+    padding: var(--section-padding-mobile);
   }
 
   .about__header {
@@ -1482,7 +1484,7 @@ a {
 .contact {
   min-height: 100svh;
   width: 100%;
-  padding: 48px;
+  padding: var(--section-padding);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1611,10 +1613,10 @@ a {
 
 /* ---------- Contact mobile ---------- */
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .contact {
     min-height: auto;
-    padding: 90px 20px 28px;
+    padding: var(--section-padding-mobile);
   }
 
   .contact__header {

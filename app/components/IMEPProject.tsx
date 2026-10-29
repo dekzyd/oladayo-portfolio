@@ -2,7 +2,10 @@ import SectionLabel from "./SectionLabel";
 
 export default function IMEPProject() {
   return (
-    <section className="work work--dark" id="m-and-e">
+    <section
+      className="work border-b border-[var(--color-border)]"
+      id="m-and-e"
+    >
       <div className="work__header">
         <SectionLabel
           number="07"

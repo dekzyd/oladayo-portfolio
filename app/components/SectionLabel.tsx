@@ -10,7 +10,7 @@ export default function SectionLabel({
   className = "",
 }: SectionLabelProps) {
   return (
-    <div className={className}>
+    <div className={`mb-12 ${className}`}>
       <span>{number}</span>
       <span>{label}</span>
     </div>
