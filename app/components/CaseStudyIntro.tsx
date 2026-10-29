@@ -5,7 +5,7 @@ export default function CaseStudyIntro() {
       <SectionLabel
         number="03"
         label="MY ROLE"
-        className="case-study-intro__label"
+        className="case-study-work__label"
       />
 
       <div className="case-study-intro__content">

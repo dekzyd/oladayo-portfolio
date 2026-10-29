@@ -32,8 +32,8 @@ export default function SelectedWork() {
 
       <article className="project project--featured project--idec" id="idec">
         <div className="project__meta">
-          <span>01 / FEATURED PROJECT</span>
-          <span>2025 — PRESENT</span>
+          <span>01 - FEATURED PROJECT</span>
+          <span>2024 — PRESENT</span>
         </div>
 
         {/* Restore the project image during visual polish. */}
@@ -49,7 +49,7 @@ export default function SelectedWork() {
         */}
 
         <div className="project__info">
-          <div className="project__number">01</div>
+          <div className="project__number"> </div>
 
           <div className="project__details">
             <p className="project__type">ENTERPRISE WEB APPLICATION</p>

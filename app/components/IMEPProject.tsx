@@ -21,12 +21,12 @@ export default function IMEPProject() {
 
       <article className="project project--featured project--imep">
         <div className="project__meta">
-          <span>02 / FEATURED PROJECT</span>
-          <span>2025 — PRESENT</span>
+          <span>02 - FEATURED PROJECT</span>
+          <span>2024 — PRESENT</span>
         </div>
 
         <div className="project__info">
-          <div className="project__number">02</div>
+          <div className="project__number"> </div>
 
           <div className="project__details">
             <p className="project__type">ENTERPRISE WEB APPLICATION</p>
