@@ -1,96 +1,180 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import SectionLabel from "./SectionLabel";
 
 export default function CaseStudyWork() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const items = Array.from(
+      section.querySelectorAll<HTMLElement>(".work-item"),
+    );
+
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+    const reducedMotionQuery = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
+
+    let frame = 0;
+
+    const updateAnimation = () => {
+      frame = 0;
+
+      if (mobileQuery.matches || reducedMotionQuery.matches) {
+        items.forEach((item) => {
+          item.classList.remove("is-active");
+        });
+        return;
+      }
+
+      const rect = section.getBoundingClientRect();
+      const scrollDistance = section.offsetHeight - window.innerHeight;
+
+      if (scrollDistance <= 0) return;
+
+      const progress = Math.min(1, Math.max(0, -rect.top / scrollDistance));
+
+      const activeIndex = Math.min(
+        items.length - 1,
+        Math.floor(progress * items.length),
+      );
+
+      items.forEach((item, index) => {
+        item.classList.toggle("is-active", index === activeIndex);
+      });
+    };
+
+    const scheduleUpdate = () => {
+      if (frame) return;
+
+      frame = window.requestAnimationFrame(updateAnimation);
+    };
+
+    const handleModeChange = () => {
+      scheduleUpdate();
+    };
+
+    window.addEventListener("scroll", scheduleUpdate, {
+      passive: true,
+    });
+
+    window.addEventListener("resize", scheduleUpdate);
+
+    mobileQuery.addEventListener("change", handleModeChange);
+    reducedMotionQuery.addEventListener("change", handleModeChange);
+
+    updateAnimation();
+
+    return () => {
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+
+      mobileQuery.removeEventListener("change", handleModeChange);
+      reducedMotionQuery.removeEventListener("change", handleModeChange);
+
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+    };
+  }, []);
+
   return (
-    <section className="case-study-work">
-      <div className="case-study-work__header">
-        <SectionLabel
-          number="04"
-          label="THE WORK"
-          className="case-study-work__label"
-        />
+    <section className="case-study-work" ref={sectionRef}>
+      <div className="case-study-work__pin">
+        <div className="case-study-work__header">
+          <SectionLabel
+            number="04"
+            label="THE WORK"
+            className="case-study-work__label"
+          />
 
-        <p className="case-study-work__intro">
-          From translating requirements into interfaces to connecting those
-          interfaces to real systems.
-        </p>
-      </div>
+          <p className="case-study-work__intro">
+            From translating requirements into interfaces to connecting those
+            interfaces to real systems.
+          </p>
+        </div>
 
-      <div className="case-study-work__list">
-        {/* Work item 1 */}
-        <article className="work-item">
-          <div className="work-item__number"></div>
+        <div className="case-study-work__list">
+          {/* Work item 1 */}
+          <article className="work-item is-active">
+            <div className="work-item__number"></div>
 
-          <div className="work-item__content">
-            <span className="work-item__category">FRONTEND DEVELOPMENT</span>
+            <div className="work-item__content">
+              <span className="work-item__category">FRONTEND DEVELOPMENT</span>
 
-            <h2 className="work-item__title">
-              Building interfaces around real workflows.
-            </h2>
+              <h2 className="work-item__title">
+                Building interfaces around real workflows.
+              </h2>
 
-            <p className="work-item__description">
-              Designed and developed responsive interfaces for the IDEC
-              platform, turning complex requirements into clear, structured user
-              flows.
-            </p>
+              <p className="work-item__description">
+                Designed and developed responsive interfaces for the IDEC
+                platform, turning complex requirements into clear, structured
+                user flows.
+              </p>
 
-            <div className="work-item__tags">
-              <span>Next.js</span>
-              <span>TypeScript</span>
-              <span>React</span>
+              <div className="work-item__tags">
+                <span>Next.js</span>
+                <span>TypeScript</span>
+                <span>React</span>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        {/* Work item 2 */}
-        <article className="work-item">
-          <div className="work-item__number"></div>
+          {/* Work item 2 */}
+          <article className="work-item">
+            <div className="work-item__number"></div>
 
-          <div className="work-item__content">
-            <span className="work-item__category">API INTEGRATION</span>
+            <div className="work-item__content">
+              <span className="work-item__category">API INTEGRATION</span>
 
-            <h2 className="work-item__title">
-              Connecting the interface to the system behind it.
-            </h2>
+              <h2 className="work-item__title">
+                Connecting the interface to the system behind it.
+              </h2>
 
-            <p className="work-item__description">
-              Integrated frontend interfaces with backend APIs, handling
-              application state, asynchronous data, loading states, errors, and
-              user interactions.
-            </p>
+              <p className="work-item__description">
+                Integrated frontend interfaces with backend APIs, handling
+                application state, asynchronous data, loading states, errors,
+                and user interactions.
+              </p>
 
-            <div className="work-item__tags">
-              <span>REST APIs</span>
-              <span>TanStack Query</span>
-              <span>Async State</span>
+              <div className="work-item__tags">
+                <span>REST APIs</span>
+                <span>TanStack Query</span>
+                <span>Async State</span>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        {/* Work item 3 */}
-        <article className="work-item">
-          <div className="work-item__number"></div>
+          {/* Work item 3 */}
+          <article className="work-item">
+            <div className="work-item__number"></div>
 
-          <div className="work-item__content">
-            <span className="work-item__category">PERFORMANCE</span>
+            <div className="work-item__content">
+              <span className="work-item__category">PERFORMANCE</span>
 
-            <h2 className="work-item__title">
-              Making the application ask for less.
-            </h2>
+              <h2 className="work-item__title">
+                Making the application ask for less.
+              </h2>
 
-            <p className="work-item__description">
-              Identified a role-dependent page making three separate API
-              requests and reworked the data-fetching logic so only the required
-              endpoint was requested.
-            </p>
+              <p className="work-item__description">
+                Identified a role-dependent page making three separate API
+                requests and reworked the data-fetching logic so only the
+                required endpoint was requested.
+              </p>
 
-            <div className="work-item__tags">
-              <span>DevTools</span>
-              <span>TanStack Query</span>
-              <span>Performance</span>
+              <div className="work-item__tags">
+                <span>DevTools</span>
+                <span>TanStack Query</span>
+                <span>Performance</span>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
     </section>
   );

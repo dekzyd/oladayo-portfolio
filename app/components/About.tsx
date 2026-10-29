@@ -1,6 +1,40 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import SectionLabel from "./SectionLabel";
 
 export default function About() {
+  const experienceRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = experienceRef.current;
+    if (!container) return;
+
+    const items = container.querySelectorAll(".about-item");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -8% 0px",
+      },
+    );
+
+    items.forEach((item) => {
+      item.classList.add("about-item--reveal");
+      observer.observe(item);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="about" id="about">
       <div className="about__header">
@@ -29,7 +63,7 @@ export default function About() {
           <span>EXPERIENCE</span>
         </div>
 
-        <div className="about__experience-content">
+        <div className="about__experience-content" ref={experienceRef}>
           <article className="about-item">
             <div className="about-item__meta">
               <span>01</span>

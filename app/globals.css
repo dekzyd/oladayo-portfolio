@@ -785,7 +785,7 @@ a {
 }
 
 .work-item:hover {
-  padding-left: 18px;
+  /* padding-left: 18px; */
 }
 
 .work-item__number {
@@ -1416,16 +1416,16 @@ a {
   color: var(--color-muted-on-dark);
 }
 
-.about__experience-content {
-  border-top: 1px solid var(--color-border);
-}
-
 .about-item {
   display: grid;
   grid-template-columns: 180px 1fr;
   gap: 48px;
   padding: 48px 0;
   border-bottom: 1px solid var(--color-border);
+}
+
+.about-item:last-child {
+  border-bottom: none;
 }
 
 .about-item__meta {
@@ -2060,6 +2060,154 @@ button:focus-visible {
   .project-index a,
   .project-index a span:nth-child(2),
   .project-index a span:last-child {
+    transition: none;
+  }
+}
+
+/* ========================================
+   CASE STUDY WORK — PINNED SEQUENCE
+======================================== */
+
+.case-study-work {
+  position: relative;
+  height: 300svh;
+}
+
+.case-study-work__pin {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.case-study-work__header {
+  flex-shrink: 0;
+}
+
+.case-study-work__list {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.case-study-work .work-item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-block: 2rem;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+
+  transition:
+    opacity 350ms ease,
+    transform 350ms ease,
+    visibility 350ms;
+}
+
+.case-study-work .work-item.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.case-study-work .work-item__content {
+  width: 100%;
+  max-width: 760px;
+}
+
+/* ========================================
+   MOBILE — NORMAL VERTICAL STACK
+======================================== */
+
+@media (max-width: 768px) {
+  .case-study-work {
+    height: auto;
+  }
+
+  .case-study-work__pin {
+    position: relative;
+    top: auto;
+    height: auto;
+    overflow: visible;
+  }
+
+  .case-study-work__list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .case-study-work .work-item {
+    position: relative;
+    inset: auto;
+    display: flex;
+    width: 100%;
+    padding-block: 0;
+
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .case-study-work {
+    height: auto;
+  }
+
+  .case-study-work__pin {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+
+  .case-study-work__list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .case-study-work .work-item {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ABOUT EXPERIENCE — SCROLL REVEAL */
+
+.about-item--reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 350ms ease,
+    transform 350ms ease;
+}
+
+.about-item--reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .about-item--reveal {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 }
