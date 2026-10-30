@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "./ThemeProvider";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,8 +24,18 @@ export default function Navbar() {
     <>
       {/* NAVBAR */}
       <nav className="navbar">
-        <a href="#home" className="navbar__logo">
-          OLADAYO
+        <a
+          href="#home"
+          className="navbar__logo"
+          aria-label="Oladayo Adekoya — Home"
+        >
+          <Image
+            src="/assets/img/logo.svg"
+            alt=""
+            width={40}
+            height={40}
+            priority
+          />
         </a>
 
         <div className="navbar__links">
