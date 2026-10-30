@@ -23,6 +23,23 @@ export default function HeroParticles() {
 
     if (!canvas || !context) return;
 
+    let particleColor = getComputedStyle(canvas)
+      .getPropertyValue("--color-particle")
+      .trim();
+
+    const themeObserver = new MutationObserver(() => {
+      particleColor = getComputedStyle(canvas)
+        .getPropertyValue("--color-particle")
+        .trim();
+
+      draw(false);
+    });
+
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     let animationFrame = 0;
@@ -113,7 +130,8 @@ export default function HeroParticles() {
         context.translate(particle.x, particle.y);
         context.rotate(particle.rotation);
 
-        context.fillStyle = `rgba(36, 87, 255, ${particle.opacity})`;
+        context.globalAlpha = Math.min(particle.opacity * 1.25, 0.85);
+        context.fillStyle = particleColor;
 
         if (particle.shape === "dot") {
           context.beginPath();
@@ -182,6 +200,7 @@ export default function HeroParticles() {
       hero?.removeEventListener("pointermove", handlePointerMove);
       hero?.removeEventListener("pointerleave", handlePointerLeave);
       reducedMotion.removeEventListener("change", startAnimation);
+      themeObserver.disconnect();
     };
   }, []);
 

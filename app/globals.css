@@ -46,8 +46,13 @@
   /* Main portfolio accent */
   --color-accent: #ba5a5a;
 
+  /* particle color */
+  --color-particle: #963f3f;
   /* IMEP accent */
   --color-imep: #0a2947;
+
+  /* transition background */
+  --color-transition-background: #0a2947;
 
   /* Supporting text */
   --color-muted: #666;
@@ -92,6 +97,9 @@
   /* Accents */
   --color-accent: #e28a8a;
   --color-imep: #82acd6;
+
+  /* Particle color */
+  --color-particle: #e28a8a;
 
   /* Supporting text */
   --color-muted: #b5b1a8;
@@ -1137,9 +1145,15 @@ a {
   padding: var(--section-padding);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background: var(--color-accent);
+  justify-content: center;
+  background: var(--color-transition-background);
   color: var(--color-text-inverse);
+}
+
+.project-transition__content {
+  width: 100%;
+  /* max-width: 1200px; */
+  margin: auto 0;
 }
 
 .project-transition__label {
@@ -1148,10 +1162,6 @@ a {
   font-size: var(--text-label);
   font-weight: 600;
   letter-spacing: 0.14em;
-}
-
-.project-transition__content {
-  max-width: 1200px;
 }
 
 .project-transition__content p {
