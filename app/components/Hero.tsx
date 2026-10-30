@@ -1,6 +1,10 @@
+import HeroParticles from "@/app/components/hero-particles";
+
 export default function Hero() {
   return (
     <section className="hero" id="home">
+      <HeroParticles />
+
       <div className="hero__top">
         {/* <span className="hero__eyebrow">FRONTEND ENGINEER</span> */}
       </div>
