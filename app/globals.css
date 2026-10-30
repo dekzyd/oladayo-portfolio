@@ -33,22 +33,26 @@
   --text-label: 10px;
   --text-meta: 9px;
 
-  /* Core Colors */
+  /* ========================================
+     THEME COLORS — LIGHT MODE
+  ======================================== */
+
   --color-background: #f4f1ea;
   --color-background-dark: #171717;
+
   --color-text: #171717;
   --color-text-inverse: #f4f1ea;
 
   /* Main portfolio accent */
   --color-accent: #ba5a5a;
 
-  /* IMEP / secondary project accent */
+  /* IMEP accent */
   --color-imep: #0a2947;
 
   /* Supporting text */
   --color-muted: #666;
   --color-subtle: #888;
-  --color-muted-on-dark: #777;
+  --color-muted-on-dark: #999;
   --color-subtle-on-dark: #999;
   --color-subtle-light: #aaa;
 
@@ -57,14 +61,52 @@
   --color-border-dark: #333;
   --color-white: #fff;
 
-  /* RGB values for translucent colors */
+  /* RGB values */
   --color-background-rgb: 244 241 234;
   --color-background-dark-rgb: 23 23 23;
+
+  /* Legacy aliases */
+  --foreground: var(--color-text);
+  --muted: var(--color-muted);
+  --accent: var(--color-accent);
 
   /* Z-index */
   --z-normal: 1;
   --z-tooltip: 10;
   --z-fixed: 100;
+}
+
+/* ========================================
+   DARK THEME
+======================================== */
+
+[data-theme="dark"] {
+  /* Backgrounds */
+  --color-background: #171717;
+  --color-background-dark: #242522;
+
+  /* Text */
+  --color-text: #f4f1ea;
+  --color-text-inverse: #f4f1ea;
+
+  /* Accents */
+  --color-accent: #e28a8a;
+  --color-imep: #82acd6;
+
+  /* Supporting text */
+  --color-muted: #b5b1a8;
+  --color-subtle: #999;
+  --color-muted-on-dark: #aaa;
+  --color-subtle-on-dark: #aaa;
+  --color-subtle-light: #b8b8b0;
+
+  /* Borders */
+  --color-border: #41413d;
+  --color-border-dark: #393a36;
+
+  /* RGB values */
+  --color-background-rgb: 23 23 23;
+  --color-background-dark-rgb: 36 37 34;
 }
 
 /* ========================================
@@ -1777,6 +1819,45 @@ a {
   gap: 8px;
 }
 
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar__theme-toggle {
+  flex-shrink: 0;
+}
+
+.navbar__theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.navbar__theme-toggle:hover {
+  background: var(--color-border);
+  transform: rotate(15deg);
+}
+
+.navbar__theme-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
 .navbar__dot {
   width: 6px;
   height: 6px;
@@ -1804,6 +1885,11 @@ a {
   .navbar__links,
   .navbar__status {
     display: none;
+  }
+
+  .navbar__actions {
+    margin-left: auto;
+    gap: 18px;
   }
 
   .navbar__menu-toggle {
