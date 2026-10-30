@@ -167,11 +167,16 @@ a {
 
 .hero__top {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   font-size: var(--text-meta);
   font-weight: 600;
   letter-spacing: 0.14em;
+}
+
+.hero__eyebrow {
+  margin-top: 50px;
+  text-align: right;
 }
 
 /* ---------- Hero content ---------- */
