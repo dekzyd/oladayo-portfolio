@@ -743,7 +743,7 @@ a {
   padding: var(--section-padding);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   background: var(--color-background-dark);
   color: var(--color-text-inverse);
 }
@@ -766,6 +766,8 @@ a {
   grid-template-columns: 1.4fr 0.6fr;
   gap: 80px;
   align-items: end;
+  width: 100%;
+  margin: auto 0;
 }
 
 .case-study-intro__statement {

@@ -6,7 +6,7 @@ export default function Hero() {
       <HeroParticles />
 
       <div className="hero__top">
-        {/* <span className="hero__eyebrow">FRONTEND ENGINEER</span> */}
+        <span className="hero__eyebrow">FRONTEND ENGINEER</span>
       </div>
 
       <div className="hero__content">
